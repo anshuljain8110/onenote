@@ -1,0 +1,25 @@
+.navbar{
+    height: 10vh;
+    background-image: linear-gradient(to bottom, blueviolet , rgba(137, 43, 226, 0.715));
+    color: white;
+    padding: 15px 40px 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.377);
+    align-items: center;
+    >h1{
+        font-size: 25px;
+    }
+    >ul{
+        display: flex;
+        gap: 20px;
+        a{
+            padding: 10px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        a:hover{
+            background-color: rgba(0, 0, 0, 0.084);
+        }
+    }
+}
