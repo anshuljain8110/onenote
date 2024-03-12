@@ -22,7 +22,7 @@ export default function Chapter(props) {
 
   return (
     <div className="chapterlist">
-      {props.opened[props.index] ? <hr /> : ""}
+      {props.opened[props.index] ? "" : ""}
       {props.opened[props.index]
         ? chapters.map((e, i) => {
             return (
