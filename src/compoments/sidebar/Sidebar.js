@@ -8,7 +8,12 @@ export default function Sidebar() {
   const [shouldfetch, setshouldfetch] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
-      let data = await fetch("http://localhost:5000/notebook/");
+      let data = await fetch("http://localhost:5000/notebook/",{
+        headers: {
+          "Content-Type": "application/json",
+          "user":localStorage.getItem("data.user._id")
+      },
+      });
       data = await data.json();
       setnotebooks(data);
       setopened(Array(notebooks.length).fill(false));

@@ -7,12 +7,17 @@ import { Data } from "./context/AppProvider";
 import Home from "./compoments/home/Home";
 import About from "./compoments/about/About";
 import Contact from "./compoments/contact/Contact";
+import Login from "./compoments/login/Login";
+// import Signin from "./compoments/login/Signin";
+import Signup from "./compoments/login/Signup";
 function App() {
   const a = useContext(Data);
   const [route, setroute] = useState("home");
+  const [loginState,setLoginState] = useState(localStorage.getItem("data.user._id")?true:false)
+  console.log(loginState)
   return (
     <div className="layout">
-      <Navbar setroute={setroute} route={route} />
+      <Navbar setroute={setroute} route={route} loginState={loginState} setLoginState={setLoginState}/>
       {route === "home" ? <Home setroute={setroute} /> : ""}
       {route === "notes" ? (
         <div className="sidebarWithEsitor">
@@ -63,6 +68,9 @@ function App() {
       )}
       {route === "about" ? <About /> : ""}
       {route === "contact" ? <Contact /> : ""}
+      {route === "login" ? <Login setroute={setroute} route={route} loginState={loginState} setLoginState={setLoginState} /> : ""}
+      {route === "signin" ? <Signup setroute={setroute} route={route} loginState={loginState} setLoginState={setLoginState} /> : ""}
+
     </div>
   );
 }

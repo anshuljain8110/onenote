@@ -6,7 +6,7 @@ export default function Addnotebook(props) {
   const [notebookname, setnotebookname] = useState("");
   const addnotefunc = async (e) => {
     e.preventDefault();
-    let data = { name: notebookname };
+    let data = { name: notebookname, user:localStorage.getItem("data.user._id") };
     let response = await fetch("http://localhost:5000/notebook/create/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
